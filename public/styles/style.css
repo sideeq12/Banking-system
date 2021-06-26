@@ -17750,8 +17750,8 @@ video {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
-.bg-hero-pattern {
-  background-image: url('/public/images/image1.svg');
+.bg-hero {
+  background-image: url('public/images/image1.svg');
 }
 
 .from-transparent {
@@ -48989,8 +48989,8 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .sm\:bg-hero-pattern {
-    background-image: url('/public/images/image1.svg');
+  .sm\:bg-hero {
+    background-image: url('public/images/image1.svg');
   }
 
   .sm\:from-transparent {
@@ -80156,8 +80156,8 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .md\:bg-hero-pattern {
-    background-image: url('/public/images/image1.svg');
+  .md\:bg-hero {
+    background-image: url('public/images/image1.svg');
   }
 
   .md\:from-transparent {
@@ -111323,8 +111323,8 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .lg\:bg-hero-pattern {
-    background-image: url('/public/images/image1.svg');
+  .lg\:bg-hero {
+    background-image: url('public/images/image1.svg');
   }
 
   .lg\:from-transparent {
@@ -142490,8 +142490,8 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .xl\:bg-hero-pattern {
-    background-image: url('/public/images/image1.svg');
+  .xl\:bg-hero {
+    background-image: url('public/images/image1.svg');
   }
 
   .xl\:from-transparent {
@@ -173657,8 +173657,8 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .\32xl\:bg-hero-pattern {
-    background-image: url('/public/images/image1.svg');
+  .\32xl\:bg-hero {
+    background-image: url('public/images/image1.svg');
   }
 
   .\32xl\:from-transparent {

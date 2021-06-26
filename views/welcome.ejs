@@ -1,17 +1,28 @@
 <%- include ("../partials/header.ejs") %>
 <body>
-    <div class="bg-red-500 flex flex-row p-6">
-        <h5 class="text-4xl italic font-semibold tracking-wide mx-10">CashFlow</h5>
+    <div class="bg-green-900 flex flex-row p-6">
+        <h5 class="text-4xl italic font-semibold tracking-wide lg:mx-10 sm:mx5">CashFlow</h5>
         <div class="flex flex-shrink flex-row justify-end w-10/12">
-            <h4 class="mx-4 text-2xl text-white">Sign in</h4>
-            <h4 class="mx-4 text-2xl text-white">FAQ.</h4>
-            <h4 class="mx-4 text-2xl text-white">About</h4>
+            <h4 class="mx-4 lg:text-2xl text-white">Sign in</h4>
+            <h4 class="mx-4 lg:text-2xl text-white">FAQ.</h4>
+            <h4 class="mx-4 lg:text-2xl text-white">About</h4>
         </div>
     </div>
-    <div class="body mx-auto md:flex">
-        <div class="vector md:flex-shrink-0 w-full bg-hero-pattern"> Left and top</div>
-        <div class="bg-red-300">Right and bottom</div>
+    <div class="min-h-screen  p-4">
+        <div class="md:flex justify-center items-center">
+        <div class="rounded m-4 h-64 lg:h-96 md:w-5/12 bg-cover bg-hero" >
+        <img src="./images/image2.svg" class="w-full h-full" alt="firt_image" /></div>
+        <div class="rounded my-4 bg-white h-64 lg:h-96 lg:w-5/12 flex flex-col justify-center">
+            <h2 class="font-bold text-4xl text-black">Welcome to <span class="text-green">CashFlow</span></h2>
+            <p class="text-grey-900 text-lg mt-2">Experience fast transaction like no other!</p>
+            <p class="text-grey-400 text-lg mt-2">The revolutionary system for money exchange aims on easy and charge-free transaction</p>
+        </div>
     </div>
-
-</body>
-</html>
+    </div>
+    <div class="bg-black lg:h-64 lg:p-4 text-center sm:p-2 flex flex-col items-center justify-center">
+        <div class="image rounded-full  bg-white w-32 h-32 mb-3">Rouded Figure</div>
+        <div class="lg:text-1xl sm:text-2xl text-gray-300">Unilimited feautures and several free service are provided with quick customer feedbacks and perfect client-support available for easy transaction.
+            The need to make the stake holders business grow faster than their countrparts in the region  is our purpose and we are here to make it a reality.
+        </div>
+    </div>
+<%- include("../partials/footer.ejs") %>
