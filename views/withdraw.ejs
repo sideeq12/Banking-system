@@ -1,0 +1,27 @@
+<%- include ("../partials/header.ejs") %>
+
+<body>
+    <div class="bg-green-900 flex flex-row p-6">
+        <h5 class="text-4xl italic font-semibold tracking-wide lg:mx-10 sm:mx5 text-yellow-600">CashFlow</h5>
+        <div class="flex flex-shrink flex-row justify-end w-10/12">
+            <a href="#" class="mx-4 lg:text-2xl text-white">Contact</a>
+            <a href="/FAQ" class="mx-4 lg:text-2xl text-white">FAQ.</a>
+            <a href="/about" class="mx-4 lg:text-2xl text-white">About</a>
+        </div>
+    </div>
+<div class="content md:flex md:flex-row">
+    <div class="left h-96 lg:h-screen text-center md:w-1/2 bg-blue-500 flex flex-col justify-center items-center" >
+        <h2 class="lg:text-4xl lg:mb-4 sm:mb-2 sm:text-3xl text-black font-semibold">
+            Login to Daashboard
+        </h2>
+        <form action="/dashboard" class="flex text-left flex-col" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" class="rounded h-8  w-64 text-black font-semibold text-center" required/>
+            <label for="password">Create password :</label>
+            <input type="password" class=" rounded h-8  w-64 text-center" required/>
+            <button type="submit" class="bg-green-900 text-white text-center rounded w-64 h-8 mt-2"> Sign up</button>
+        </form></div>   
+    <img src="./images/image2.svg" class="left h-96 lg:h-screen text-center md:w-1/2 bg-yellow-500" />
+</div>
+
+<%- include ("../partials/footer.ejs") %>
