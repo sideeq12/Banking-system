@@ -30,6 +30,9 @@ app.get("/transfer", (req, res)=>{
 app.get("/withdraw", (req, res)=>{
     res.render("withdraw")
 })
+app.get("/dashboard", (req, res)=>{
+    res.render("dashboard")
+})
 
 // THE POST REQUESTS FOR HANDLING DATA
 app.post("/dashboard", (req, res)=>{
