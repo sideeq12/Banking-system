@@ -1,14 +1,18 @@
 // Declaring the modules to be used in the app
+require("dotenv").config()
 const express = require("express")
-const bodyParser = require("body-parser")
 const path = require("path")
 const db = require("./db/index")
+const bodyParser= require("body-parser")
+
+
 const app = express()
 
-app.set("view engine", "ejs")
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static(path.join(__dirname, "public")))
 
+
+app.set("view engine", "ejs")
+app.use(bodyParser.urlencoded({extended : false}))
+app.use(express.static(path.join(__dirname, "public")))
 
 // All get request of the projects
 app.get("/", (req, res)=>{
@@ -51,10 +55,19 @@ app.get("/test", async (req, res)=>{
 
 // THE POST REQUESTS FOR HANDLING DATA
 app.post("/dashboard", (req, res)=>{
+    const data = req.body
+    console.log(data)
     res.render("dashboard")
 })
 app.post("/success", (req, res)=>{
-    res.render("success")
+    let data = req.body
+    let beneficiary = data.beneficiary;
+    let ammount = data.ammount
+    res.render("success", 
+    {
+        ammount : ammount,
+        beneficiary : beneficiary
+    })
 })
 
 

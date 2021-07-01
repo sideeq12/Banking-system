@@ -16,7 +16,7 @@
         </h2>
         <form action="/success" class="flex text-left flex-col" method="POST">
             <label for="email">Sender's tag:</label>
-            <input type="text" class="rounded h-8  w-64 text-black font-semibold text-center" placeholder="@Sideeq12" readonly/>
+            <input type="text" name="email" class="rounded h-8  w-64 text-black font-semibold text-center" placeholder="@Sideeq12" readonly/>
             <label for="text">Ammount</label>
             <select name="ammount" itemid="amount" class="rounded h-8  w-64 text-black font-semibold text-center">
                 <option value="500">₦500</option>
@@ -28,7 +28,7 @@
                 <option value="50000">₦50,000</option>
             </select>
             <label for="Beneficiary tag">Beneficiary tag:</label>
-            <input type="text" class="rounded h-8  w-64 text-black font-semibold text-center" required/>
+            <input type="text" name="beneficiary" class="rounded h-8  w-64 text-black font-semibold text-center" required/>
             <label for="description">Description:</label>
             <textarea name="description" id="description" cols="30" class="h-12 p-1 font-semibold w-64 rounded" rows="10"></textarea>
             <button type="submit" class="bg-green-900 text-white text-center rounded w-64 h-8 mt-2"> Transfer now</button>

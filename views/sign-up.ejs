@@ -17,13 +17,13 @@
             </h2>
             <form action="/dashboard" class="flex text-left flex-col" method="POST">
                 <label for="full name">Full name:</label>
-                <input type="text" class=" rounded h-8  w-64 text-black font-semibold text-center" required/>
+                <input name="fullname" type="text" class=" rounded h-8  w-64 text-black font-semibold text-center" required/>
                 <label for="email">Email:</label>
-                <input type="email" class="rounded h-8  w-64 text-black font-semibold text-center" required/>
+                <input  name="email" type="email" class="rounded h-8  w-64 text-black font-semibold text-center" required/>
                 <label for="password">Create password :</label>
-                <input type="password" class=" rounded h-8  w-64 text-center" required/>
+                <input name="password" type="password" class=" rounded h-8  w-64 text-center" required/>
                 <label for="confirm-password">Confirm password</label>
-                <input type="password" class="rounded h-8  w-64 text-center" required/>
+                <input name="cpassword" type="password" class="rounded h-8  w-64 text-center" required/>
                 <button type="submit" class="bg-green-900 text-white text-center rounded w-64 h-8 mt-2"> Sign up</button>
             </form>
         </div>    
