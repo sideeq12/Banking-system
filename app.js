@@ -2,7 +2,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const path = require("path")
-
+const db = require("./db/index")
 const app = express()
 
 app.set("view engine", "ejs")
@@ -32,6 +32,21 @@ app.get("/withdraw", (req, res)=>{
 })
 app.get("/dashboard", (req, res)=>{
     res.render("dashboard")
+})
+app.get("/database", (req, res)=>{
+    res.json({
+        data : {
+            id : 1,
+            "status" : "success",
+            "value" : "transactions",
+            "sender": "@sideeq12",
+            "beneficiary" : "@Alowonle"
+        }
+    })
+})
+app.get("/test", async (req, res)=>{
+   const data = await db.query(`SELECT * FROM users`)
+   res.json(data)
 })
 
 // THE POST REQUESTS FOR HANDLING DATA
