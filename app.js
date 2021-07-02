@@ -64,6 +64,21 @@ app.get("/emailError", (req, res)=>{
 app.get("/passError", (req, res)=>{
     res.render("sign-up", {warning : "password does not match ", email : ""})
 })
+
+app.post("/login", async(req, res)=>{
+    const body = req.params;
+    let email = body.email;
+    let password = body.password
+    const data = db.query(`SELECT * FROM users WHERE email= $1`, [email])
+    console.log(data)
+    if(data){
+        res.render("dashboard", {
+            full_name : "", balance : ""
+        })
+    }else{
+
+    }
+})
 // THE POST REQUESTS FOR HANDLING DATA
 app.post("/dashboard", async(req, res)=>{
 
@@ -85,8 +100,12 @@ app.post("/dashboard", async(req, res)=>{
         res.redirect("/emailError")
     }
     else{
-        console.log(data)
-        res.render("dashboard")
+        db.query(`INSERT INTO users (email, password, full_name, balance, tag_name) VALUES ($1, $2, $3, 200000, $4)`, [email, password, full_name,"@"+full_name ])
+        const profile = db.query(`SELECT * FROM users WHERE email = $1`, [email])
+        console.log(profile.rows)
+        res.render("dashboard", {
+
+        })
     }
   
 })
