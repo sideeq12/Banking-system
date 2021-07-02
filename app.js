@@ -68,12 +68,13 @@ app.get("/passError", (req, res)=>{
 app.post("/login", async(req, res)=>{
     const body = req.params;
     let email = body.email;
+    console.log(body)
     let password = body.password
-    const data = db.query(`SELECT * FROM users WHERE email= $1`, [email])
+    const data =await db.query(`SELECT * FROM users WHERE email= $1`, [email])
     console.log(data)
     if(data){
         res.render("dashboard", {
-            full_name : "", balance : ""
+            full_name : "Sideeq Abdwaheed", balance : "200,000"
         })
     }else{
 
