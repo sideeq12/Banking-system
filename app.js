@@ -66,18 +66,20 @@ app.get("/passError", (req, res)=>{
 })
 
 app.post("/login", async(req, res)=>{
-    const body = req.params;
+    const body = req.body;
     let email = body.email;
     console.log(body)
     let password = body.password
     const data =await db.query(`SELECT * FROM users WHERE email= $1`, [email])
-    console.log(data)
     if(data){
+        let profile = data.rows;
+        let name =  profile.full_name
+        let balance =profile.balance
         res.render("dashboard", {
-            full_name : "Sideeq Abdwaheed", balance : "200,000"
+            full_name : name, balance : balance
         })
     }else{
-
+       res.redirect("/login")
     }
 })
 // THE POST REQUESTS FOR HANDLING DATA
@@ -105,7 +107,8 @@ app.post("/dashboard", async(req, res)=>{
         const profile = db.query(`SELECT * FROM users WHERE email = $1`, [email])
         console.log(profile.rows)
         res.render("dashboard", {
-
+                full_name : "",
+                balance : ""
         })
     }
   
