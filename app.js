@@ -20,7 +20,9 @@ app.get("/", (req, res)=>{
 })
 
 app.get("/create", (req, res)=>{
-    res.render("sign-up")
+    res.render("sign-up",{
+        email : "", warning : ""
+    })
 })
 
 app.get("/login", (req, res)=>{
@@ -38,16 +40,55 @@ app.get("/dashboard", (req, res)=>{
     res.render("dashboard")
 })
 
-app.get("/test", async (req, res)=>{
+app.get("/test/:id", async (req, res)=>{
+    let user = await req.params
+    console.log(user)
    const data = await db.query(`SELECT * FROM users`)
-   res.json(data)
+   let results = data.rows
+   results.map((result)=>{
+       if(result.tag_name = user){
+           res.json(result)
+       } else{
+           res.json({
+               "status" : "data not found"
+           })
+       }
+   })
+
 })
 
+
+app.get("/emailError", (req, res)=>{
+    res.render("sign-up", { email : "Email has already been used", warning : ""})
+})
+app.get("/passError", (req, res)=>{
+    res.render("sign-up", {warning : "password does not match ", email : ""})
+})
 // THE POST REQUESTS FOR HANDLING DATA
-app.post("/dashboard", (req, res)=>{
+app.post("/dashboard", async(req, res)=>{
+
+    // fetching the data from the users to the database
     const data = req.body
-    console.log(data)
-    res.render("dashboard")
+    let full_name = data.fullname;
+    let email = data.email;
+    let password  = data.password;
+    let cpassword = data.cpassword;
+
+
+    let exist = await db.query(`SELECT email FROM users`)
+    let exit =await exist.rows
+    let confirm = exit.map(singleMail => singleMail.email ==email)
+    if(password !== cpassword){
+        console.log("password not match")
+        res.redirect("/passError")
+    }else if(confirm[0]){
+        res.redirect("/emailError")
+    }
+    else{
+        console.log(data)
+        res.render("dashboard")
+    }
+  
 })
 app.post("/success", (req, res)=>{
     let data = req.body
