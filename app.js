@@ -26,7 +26,9 @@ app.get("/create", (req, res)=>{
 })
 
 app.get("/login", (req, res)=>{
-    res.render("signin")
+    res.render("signin", {
+        error : ""
+    })
 })
 
 app.get("/transfer", (req, res)=>{
@@ -64,22 +66,28 @@ app.get("/emailError", (req, res)=>{
 app.get("/passError", (req, res)=>{
     res.render("sign-up", {warning : "password does not match ", email : ""})
 })
+app.get("/loginError", (req, res)=>{
+    res.render("signin", {
+        error : "Incorrect credentials"
+    })
+})
 
 app.post("/login", async(req, res)=>{
     const body = req.body;
     let email = body.email;
     let password = body.password
-    const data =await db.query(`SELECT * FROM users WHERE email= $1`, [email])
-    console.log(data.rows)
-    if(data){
-        let profile = data.rows[0];
+    const data =await db.query(`SELECT * FROM users WHERE email= $1 AND password= $2` , [email, password])
+    let result = data.rows
+    let profile = result[0];
+    console.log(profile)
+    if(profile){
         let name =  profile.full_name
         let balance =profile.balance
         res.render("dashboard", {
             full_name : name, balance : balance
         })
     }else{
-       res.redirect("/login")
+       res.redirect("/loginError")
     }
 })
 // THE POST REQUESTS FOR HANDLING DATA
