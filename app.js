@@ -104,11 +104,11 @@ app.post("/dashboard", async(req, res)=>{
     let exist = await db.query(`SELECT email FROM users`)
     let exit =await exist.rows
     let confirm = exit.map(singleMail => singleMail.email ==email)
-    if(password !== cpassword){
+    if(confirm[0]){
+        res.redirect("/emailError")
+    }else if(password != cpassword){
         console.log("password not match")
         res.redirect("/passError")
-    }else if(confirm[0]){
-        res.redirect("/emailError")
     }
     else{
         db.query(`INSERT INTO users (email, password, full_name, balance, tag_name) VALUES ($1, $2, $3, 200000, $4)`, [email, password, full_name,"@"+full_name ])
