@@ -111,12 +111,12 @@ app.post("/dashboard", async(req, res)=>{
         res.redirect("/passError")
     }
     else{
-        db.query(`INSERT INTO users (email, password, full_name, balance, tag_name) VALUES ($1, $2, $3, 200000, $4)`, [email, password, full_name,"@"+full_name ])
-        const profile = db.query(`SELECT * FROM users WHERE email = $1`, [email])
-        console.log(profile.rows)
+      await db.query(`INSERT INTO users (email, password, full_name, balance, tag_name) VALUES ($1, $2, $3, 200000, $4)`, [email, password, full_name,"@"+full_name ])
+        const profile = await db.query(`SELECT * FROM users WHERE email = $1`, [email])
+        let result = profile.rows[0]
         res.render("dashboard", {
-                full_name : "",
-                balance : ""
+                full_name : result.full_name,
+                balance : result.balance
         })
     }
   
