@@ -68,11 +68,11 @@ app.get("/passError", (req, res)=>{
 app.post("/login", async(req, res)=>{
     const body = req.body;
     let email = body.email;
-    console.log(body)
     let password = body.password
     const data =await db.query(`SELECT * FROM users WHERE email= $1`, [email])
+    console.log(data.rows)
     if(data){
-        let profile = data.rows;
+        let profile = data.rows[0];
         let name =  profile.full_name
         let balance =profile.balance
         res.render("dashboard", {
